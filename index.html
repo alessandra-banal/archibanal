@@ -40,25 +40,40 @@
       var contentEl = document.getElementById('content-wrapper');
       var scrollEl = document.getElementById('scroll-wrapper');
 
+      // Initial scroll
+      contentEl.scrollTop = contentEl.clientHeight * 0.05
+
       var initialScrollElContent = scrollEl.innerHTML;
       var initialScrollElHeight = scrollEl.clientHeight;
 
-      document.addEventListener('mousewheel', function(e) {
-        console.log('contentEl.scrollTop', contentEl.scrollTop);
-        console.log('contentEl.initialScrollElHeight', initialScrollElHeight);
+      // Add content until the screen is full
+      while (contentEl.clientHeight > scrollEl.clientHeight) { addContent(); }
 
+      document.addEventListener('mousewheel', function(e) {
         // Scroll content
         contentEl.scrollTop = contentEl.scrollTop + e.deltaY;
 
         // Calculate maxScrollTop
         var maxScrollTop = scrollEl.clientHeight - contentEl.clientHeight;
-        console.log('maxScrollTop', maxScrollTop);
 
-        // Insert additional content if scrolled to the max
-        if (contentEl.scrollTop >= maxScrollTop) {
-          scrollEl.innerHTML = scrollEl.innerHTML + initialScrollElContent;
+        // Ping back if scrolled to the min
+        if (contentEl.scrollTop === 0) {
+          console.log('scrolledMin');
+          contentEl.innerHTML = initialScrollElContent + initialScrollElContent;
+          contentEl.scrollTop = initialScrollElHeight;
+        }
+
+        // If scrolled to the max
+        if (contentEl.scrollTop === maxScrollTop) {
+          console.log('scrolledMax');
+          // contentEl.scrollTop = initialScrollElHeight;
+          // contentEl.innerHTML = initialScrollElContent + initialScrollElContent;
         }
       }, true);
+
+      function addContent() {
+        scrollEl.innerHTML = scrollEl.innerHTML + initialScrollElContent;
+      }
     </script>
   </body>
 </html>

@@ -45,6 +45,7 @@
 
       var initialScrollElContent = scrollEl.innerHTML;
       var initialScrollElHeight = scrollEl.clientHeight;
+      var initialMaxScrollTop = scrollEl.clientHeight - contentEl.clientHeight;
 
       // Add content until the screen is full
       while (contentEl.clientHeight > scrollEl.clientHeight) { addContent(); }
@@ -58,16 +59,14 @@
 
         // Ping back if scrolled to the min
         if (contentEl.scrollTop === 0) {
-          console.log('scrolledMin');
-          contentEl.innerHTML = initialScrollElContent + initialScrollElContent;
+          scrollEl.innerHTML = initialScrollElContent + initialScrollElContent;
           contentEl.scrollTop = initialScrollElHeight;
         }
 
         // If scrolled to the max
         if (contentEl.scrollTop === maxScrollTop) {
-          console.log('scrolledMax');
-          // contentEl.scrollTop = initialScrollElHeight;
-          // contentEl.innerHTML = initialScrollElContent + initialScrollElContent;
+          scrollEl.innerHTML = initialScrollElContent + initialScrollElContent;
+          contentEl.scrollTop = initialMaxScrollTop;
         }
       }, true);
 

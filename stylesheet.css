@@ -18,6 +18,14 @@ body {
   overflow: hidden;
 }
 
+#line {
+  position: fixed;
+  bottom: 26vh;
+  height: 1px;
+  width: 100vw;
+  background-color: black;
+}
+
 section {
   margin-left: 30%;
   width: 70%;

@@ -50,6 +50,7 @@
       // Save initial content for re-rendering
       var initialScrollElContent = scrollEl.innerHTML;
 
+      // Renders the content twice for scrollability
       doubleContent();
 
       document.addEventListener('mousewheel', function(e) {
@@ -74,9 +75,8 @@
         }
       }, true);
 
-      // Renders the content twice for scrollability
       function doubleContent() {
-        scrollEl.innerHTML = scrollEl.innerHTML + initialScrollElContent;
+        scrollEl.innerHTML = initialScrollElContent + initialScrollElContent;
       }
     </script>
   </body>

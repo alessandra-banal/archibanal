@@ -7,9 +7,17 @@
 }
 
 body {
-  margin-top: -12vh;
+  margin: 0;
   background-color: #622bfd;
 }
+
+#content-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+}
+
 section {
   margin-left: 30%;
   width: 70%;
@@ -17,9 +25,9 @@ section {
   font-family: 'OCR A Std';
   font-size: 4.2vw;
   white-space: nowrap;
-  margin-top: 70px;
-  margin-bottom: 70px;
+  padding-bottom: 12vh;
 }
+
 section a {
   font-family: 'Archivo Black', sans-serif;
   color: transparent;

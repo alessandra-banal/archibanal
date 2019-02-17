@@ -5,34 +5,60 @@
     <meta charset="utf-8">
 
     <title>Archi Banal</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <meta name="description" content="TODO">
+    <meta name="author" content="TODO">
 
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
     <link href="stylesheet.css" rel="stylesheet" type = "text/css">
-
-    <script type="text/javascript">
-      $(document).on('touchmove', () => this.onScroll())
-      $(window).on('scroll', () => this.onScroll())
-    </script>
   </head>
   <body>
-    <section>
-      <a target="_blank" href="https://www.linkedin.com/in/alessandra-banal-5365ab10b/">linkedin</a>
-      / Alessandra Banal<br>
-      // archi
-    </section>
+    <div id="content-wrapper">
+      <div id="scroll-wrapper">
 
-    <section>
-      <a target="_blank" href="mailto:alessandra.banal@gmail.com">email</a>
-      / Alessandra Banal<br>
-      // archi
-    </section>
+        <section>
+          <a target="_blank" href="https://www.linkedin.com/in/alessandra-banal-5365ab10b/">linkedin</a>
+          / Alessandra Banal<br>
+          // archi
+        </section>
 
-    <section>
-      <a target="_blank" href="https://www.behance.net/archibanal">behance</a>
-      / Alessandra Banal<br>
-      // archi
-    </section>
+        <section>
+          <a target="_blank" href="mailto:alessandra.banal@gmail.com">email</a>
+          / Alessandra Banal<br>
+          // archi
+        </section>
+
+        <section>
+          <a target="_blank" href="https://www.behance.net/archibanal">behance</a>
+          / Alessandra Banal<br>
+          // archi
+        </section>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var contentEl = document.getElementById('content-wrapper');
+      var scrollEl = document.getElementById('scroll-wrapper');
+
+      var initialScrollElContent = scrollEl.innerHTML;
+      var initialScrollElHeight = scrollEl.clientHeight;
+
+      document.addEventListener('mousewheel', function(e) {
+        console.log('contentEl.scrollTop', contentEl.scrollTop);
+        console.log('contentEl.initialScrollElHeight', initialScrollElHeight);
+
+        // Scroll content
+        contentEl.scrollTop = contentEl.scrollTop + e.deltaY;
+
+        // Calculate maxScrollTop
+        var maxScrollTop = scrollEl.clientHeight - contentEl.clientHeight;
+        console.log('maxScrollTop', maxScrollTop);
+
+        // Insert additional content if scrolled to the max
+        if (contentEl.scrollTop >= maxScrollTop) {
+          scrollEl.innerHTML = scrollEl.innerHTML + initialScrollElContent;
+        }
+      }, true);
+    </script>
   </body>
 </html>

@@ -43,34 +43,39 @@
       // Initial scroll
       contentEl.scrollTop = contentEl.clientHeight * 0.05
 
-      var initialScrollElContent = scrollEl.innerHTML;
-      var initialScrollElHeight = scrollEl.clientHeight;
-      var initialMaxScrollTop = scrollEl.clientHeight - contentEl.clientHeight;
+      // Measure values with content rendered once
+      var initialContentScrolledTop = scrollEl.clientHeight;
+      var initialContentScrolledBottom = scrollEl.clientHeight - contentEl.clientHeight;
 
-      // Add content until the screen is full
-      while (contentEl.clientHeight > scrollEl.clientHeight) { addContent(); }
+      // Save initial content for re-rendering
+      var initialScrollElContent = scrollEl.innerHTML;
+
+      doubleContent();
 
       document.addEventListener('mousewheel', function(e) {
         // Scroll content
         contentEl.scrollTop = contentEl.scrollTop + e.deltaY;
 
-        // Calculate maxScrollTop
+        // Calculate dynamic maxScrollTop
         var maxScrollTop = scrollEl.clientHeight - contentEl.clientHeight;
 
         // Ping back if scrolled to the min
         if (contentEl.scrollTop === 0) {
-          scrollEl.innerHTML = initialScrollElContent + initialScrollElContent;
-          contentEl.scrollTop = initialScrollElHeight;
+          doubleContent();
+          // Set scroll to halfway between sets of content
+          contentEl.scrollTop = initialContentScrolledTop;
         }
 
-        // If scrolled to the max
+        // Ping back if scrolled to the max
         if (contentEl.scrollTop === maxScrollTop) {
-          scrollEl.innerHTML = initialScrollElContent + initialScrollElContent;
-          contentEl.scrollTop = initialMaxScrollTop;
+          doubleContent();
+          // Ping back to fully scrolled through first set of content
+          contentEl.scrollTop = initialContentScrolledBottom;
         }
       }, true);
 
-      function addContent() {
+      // Renders the content twice for scrollability
+      function doubleContent() {
         scrollEl.innerHTML = scrollEl.innerHTML + initialScrollElContent;
       }
     </script>

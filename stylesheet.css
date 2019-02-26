@@ -20,28 +20,15 @@ body {
 
 @media only screen and (min-width: 480px) {
   #content-wrapper {
-    margin-top: -5vh;
+    margin-top: -6vh;
   }
 }
 
 #line {
-  position: fixed;
   bottom: 32vh;
   height: 1px;
   width: 100vw;
   background-color: black;
-}
-
-@media only screen and (min-width: 480px) {
-  #line {
-    bottom: 33vh;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  #line {
-    bottom: 27vh;
-  }
 }
 
 section {
@@ -50,7 +37,12 @@ section {
   text-align: center;
   font-family: 'OCR A Std';
   white-space: nowrap;
-  padding-bottom: 14vh;
+  padding-bottom: 6.8vh;
+  padding-top: 6.8vh;
+}
+
+section:first-child {
+  padding-top: 0;
 }
 
 @media only screen and (min-width: 480px) {
@@ -58,7 +50,8 @@ section {
     font-size: 4.2vw;
     margin-left: 30%;
     width: 70%;
-    padding-bottom: 12vh;
+    padding-bottom: 5.7vh;
+    padding-top: 5.7vh;
   }
 }
 

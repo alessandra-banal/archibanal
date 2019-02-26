@@ -15,33 +15,66 @@ body {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  overflow: hidden;
+  margin-top: -2.2vh;
+}
+
+@media only screen and (min-width: 480px) {
+  #content-wrapper {
+    margin-top: -5vh;
+  }
 }
 
 #line {
   position: fixed;
-  bottom: 26vh;
+  bottom: 32vh;
   height: 1px;
   width: 100vw;
   background-color: black;
 }
 
+@media only screen and (min-width: 480px) {
+  #line {
+    bottom: 33vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #line {
+    bottom: 27vh;
+  }
+}
+
 section {
-  margin-left: 30%;
-  width: 70%;
+  width: 100%;
+  font-size: 7.9vw;
   text-align: center;
   font-family: 'OCR A Std';
-  font-size: 4.2vw;
   white-space: nowrap;
-  padding-bottom: 12vh;
+  padding-bottom: 14vh;
+}
+
+@media only screen and (min-width: 480px) {
+  section {
+    font-size: 4.2vw;
+    margin-left: 30%;
+    width: 70%;
+    padding-bottom: 12vh;
+  }
 }
 
 section a {
   font-family: 'Archivo Black', sans-serif;
   color: transparent;
-  font-size: 6.2vw;
+  font-size: 10vw;
   text-decoration: none;
   text-transform: uppercase;
   display: block;
   -webkit-text-stroke: 1px black;
+}
+
+
+@media only screen and (min-width: 480px) {
+  section  a {
+    font-size: 6.2vw;
+  }
 }

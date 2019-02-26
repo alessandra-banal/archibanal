@@ -5,6 +5,7 @@
     <meta charset="utf-8">
 
     <title>Archi Banal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="description" content="TODO">
     <meta name="author" content="TODO">
 
@@ -13,73 +14,25 @@
   </head>
   <body>
     <div id="content-wrapper">
-      <div id="scroll-wrapper">
+      <section>
+        <a target="_blank" href="https://www.linkedin.com/in/alessandra-banal-5365ab10b/">linkedin</a>
+        / Alessandra Banal<br>
+        // archi
+      </section>
 
-        <section>
-          <a target="_blank" href="https://www.linkedin.com/in/alessandra-banal-5365ab10b/">linkedin</a>
-          / Alessandra Banal<br>
-          // archi
-        </section>
+      <section>
+        <a target="_blank" href="mailto:alessandra.banal@gmail.com">email</a>
+        / Alessandra Banal<br>
+        // archi
+      </section>
 
-        <section>
-          <a target="_blank" href="mailto:alessandra.banal@gmail.com">email</a>
-          / Alessandra Banal<br>
-          // archi
-        </section>
-
-        <section>
-          <a target="_blank" href="https://www.behance.net/archibanal">behance</a>
-          / Alessandra Banal<br>
-          // archi
-        </section>
-
-      </div>
+      <section>
+        <a target="_blank" href="https://www.behance.net/archibanal">behance</a>
+        / Alessandra Banal<br>
+        // archi
+      </section>
 
       <div id="line"></div>
     </div>
-
-    <script type="text/javascript">
-      var contentEl = document.getElementById('content-wrapper');
-      var scrollEl = document.getElementById('scroll-wrapper');
-
-      // Initial scroll
-      contentEl.scrollTop = contentEl.clientHeight * 0.05;
-
-      // Measure values with content rendered once
-      var initialContentScrolledTop = scrollEl.clientHeight;
-      var initialContentScrolledBottom = scrollEl.clientHeight - contentEl.clientHeight;
-
-      // Save initial content for re-rendering
-      var initialScrollElContent = scrollEl.innerHTML;
-
-      // Renders the content twice for scrollability
-      doubleContent();
-
-      document.addEventListener('mousewheel', function(e) {
-        // Scroll content
-        contentEl.scrollTop = contentEl.scrollTop + e.deltaY;
-
-        // Calculate dynamic maxScrollTop
-        var maxScrollTop = scrollEl.clientHeight - contentEl.clientHeight;
-
-        // Ping back if scrolled to the min
-        if (contentEl.scrollTop === 0) {
-          doubleContent();
-          // Set scroll to halfway between sets of content
-          contentEl.scrollTop = initialContentScrolledTop;
-        }
-
-        // Ping back if scrolled to the max
-        if (contentEl.scrollTop === maxScrollTop) {
-          doubleContent();
-          // Ping back to fully scrolled through first set of content
-          contentEl.scrollTop = initialContentScrolledBottom;
-        }
-      }, true);
-
-      function doubleContent() {
-        scrollEl.innerHTML = initialScrollElContent + initialScrollElContent;
-      }
-    </script>
   </body>
 </html>

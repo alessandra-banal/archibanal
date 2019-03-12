@@ -9,6 +9,7 @@
 body {
   margin: 0;
   background-color: #622bfd;
+  cursor: url('cursor-default.png'), default;
 }
 
 #content-wrapper {
@@ -61,6 +62,7 @@ section a {
   text-decoration: none;
   text-transform: uppercase;
   display: block;
+  cursor: url('cursor-hover.png'), pointer;
   -webkit-text-stroke: 1px black;
 }
 
